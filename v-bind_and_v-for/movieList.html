@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Movie List </title>
+</head>
+<style>
+    .redText {
+        color: rgb(233, 148, 162);
+    }
+</style>
+<body>
+    
+    <div id="movies">
+        <input :size="inputSize" @keyup.enter="submit" v-model="newMovie" placeholder="请输入电影名称，回车添加新电影"> 
+        <ul>
+            <li @click="clicked(index)" :class="{redText: index == current}" v-for="(movie, index) in movies">{{ movie }}</li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#movies',
+            data: {
+                movies: ['星际穿越', '爱在黎明破晓前', '亲爱的', '阿飞正传', '情书'],
+                current: -1,
+                newMovie: '',
+                inputSize: '35px'
+            },
+            methods: {
+                clicked(index) {
+                    this.current = index;
+                },
+                submit() {
+                    this.movies.push(this.newMovie)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
