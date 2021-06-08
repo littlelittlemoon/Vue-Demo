@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Counter </title>
+</head>
+
+<body>
+    <div id="counter">
+        <h2 v-once>当前计数：{{ counter }} (v-once: 这个计数不会被改变)</h2>
+        <h2>当前计数：{{ counter }}</h2>
+        <button @click="plus">+</button>
+        <button @click="subtraction">-</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#counter',
+            data: {
+                counter: 0
+            },
+            methods: {
+                plus: function () {
+                    this.counter++
+                },
+                subtraction: function () {
+                    if (this.counter == 0) {
+                        return;
+                    }
+                    this.counter--
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
