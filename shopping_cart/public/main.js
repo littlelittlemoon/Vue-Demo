@@ -50,11 +50,8 @@ const app = new Vue({
       for(book of this.books) {
         totalPrice += book.count * book.price;
       }
-      
-      return totalPrice;
-    },
-    totalCount() {
 
+      return totalPrice;
     }
   },
   methods: {
